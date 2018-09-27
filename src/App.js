@@ -52,16 +52,8 @@ class App extends Component {
   };
 
   render() {
-    const style = {
-      backgroundColor: 'green',
-      color: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer',
-    };
-
     let persons = null;
+    let btnClasses = '';
 
     if (this.state.showPerson) {
       persons = (
@@ -78,11 +70,7 @@ class App extends Component {
         </div>
       );
 
-      style.backgroundColor = 'red';
-      style[':hover'] = {
-        backgroundColor: 'salmon',
-        color: 'black'
-      };
+      btnClasses = classes.red;
     }
 
     const signedClasses = [];
@@ -92,12 +80,17 @@ class App extends Component {
     if (this.state.persons.length <= 1) {
       signedClasses.push(classes.bold);
     }
+    console.log(classes);
 
     return (
       <div className={classes.App}>
         <h1>test</h1>
         <p className={signedClasses.join(' ')}>This is really work</p>
-        <button style={style} onClick={this.togglePersonhandler}>Toggle person</button>
+        <button
+          onClick={this.togglePersonhandler}
+          className={btnClasses}
+        >Toggle person
+        </button>
         {persons}
       </div>
     )
