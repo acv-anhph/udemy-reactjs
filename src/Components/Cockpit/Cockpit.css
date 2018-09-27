@@ -1,7 +1,3 @@
-.App {
-    text-align: center;
-}
-
 .red {
     color: red;
 }
@@ -10,23 +6,23 @@
     font-weight: bold;
 }
 
-.App button {
+.Cockpit button {
     border: 1px solid blue;
     background: green;
     color: white;
     padding: 16px;
 }
 
-.App button:hover {
+.Cockpit button:hover {
     background-color: lightgreen;
     color: black;
 }
 
-.App button.red {
+.Cockpit button.red {
     background-color: red;
 }
 
-.App button.red:hover {
+.Cockpit button.red:hover {
     background-color: salmon;
     color: black;
 }
