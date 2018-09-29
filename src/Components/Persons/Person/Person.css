@@ -5,8 +5,8 @@
     margin: 15px auto
 }
 
-/*@media screen and (min-width: 500px) {*/
-    /*.Person {*/
-        /*width: 500px;*/
-    /*}*/
-/*}*/
+@media screen and (min-width: 500px) {
+    .Person {
+        width: 500px;
+    }
+}

@@ -1,8 +1,14 @@
 import React, {Component} from 'react';
 import classes from './App.css';
-import Person from './Person/Person';
+import Persons from '../Components/Persons/Persons';
+import Cockpit from '../Components/Cockpit/Cockpit';
 
 class App extends Component {
+  constructor (props) {
+    super(props);
+
+  }
+
   state = {
     persons: [
       {id: 'dsfsdfsdf3423', name: 'hoang anh', age: 29},
@@ -52,52 +58,22 @@ class App extends Component {
   };
 
   render() {
-    const style = {
-      backgroundColor: 'green',
-      color: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer',
-    };
-
     let persons = null;
 
     if (this.state.showPerson) {
-      persons = (
-        <div>
-          {this.state.persons.map((person, index) => {
-            return <Person
-              key={person.id}
-              name={person.name}
-              age={person.age}
-              click={() => this.deletePersonHandler(index)}
-              changed={(event) => this.nameChangedhandler(event, person.id)}
-            />
-          })}
-        </div>
-      );
-
-      style.backgroundColor = 'red';
-      style[':hover'] = {
-        backgroundColor: 'salmon',
-        color: 'black'
-      };
-    }
-
-    const signedClasses = [];
-    if (this.state.persons.length <= 2) {
-      signedClasses.push(classes.red);
-    }
-    if (this.state.persons.length <= 1) {
-      signedClasses.push(classes.bold);
+      persons = <Persons
+                  persons={this.state.persons}
+                  clicked={this.deletePersonHandler}
+                  changed={this.nameChangedhandler}/>;
     }
 
     return (
       <div className={classes.App}>
-        <h1>test</h1>
-        <p className={signedClasses.join(' ')}>This is really work</p>
-        <button style={style} onClick={this.togglePersonhandler}>Toggle person</button>
+        <Cockpit
+          showPerson={this.state.showPerson}
+          persons={this.state.persons}
+          togglePersonhandler={this.togglePersonhandler}
+        />
         {persons}
       </div>
     )
