@@ -13,6 +13,7 @@ const cockpit = (props) => {
   if (props.persons.length <= 2) {
     signedClasses.push(classes.red);
   }
+
   if (props.persons.length <= 1) {
     signedClasses.push(classes.bold);
   }
