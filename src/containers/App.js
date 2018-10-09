@@ -2,6 +2,8 @@ import React, {PureComponent} from 'react';
 import classes from './App.css';
 import Persons from '../Components/Persons/Persons';
 import Cockpit from '../Components/Cockpit/Cockpit';
+import withClass from '../hoc/withClass';
+import Aux from '../hoc/_Aux';
 
 class App extends PureComponent {
   constructor(props) {
@@ -10,11 +12,12 @@ class App extends PureComponent {
 
     this.state = {
       persons: [
-        {id: 'dsfsdfsdf3423', name: 'hoang anh', age: 29},
+        {id: 'dsfsdfsdf3423', name: 'hoang anh', age: '45'},
         {id: 'dsfsdfsdf342vds3', name: 'ngan ha', age: 29},
         {id: 'dsfsdfsdf34s23', name: 'dau dau', age: 2},
       ],
-      showPerson: false
+      showPerson: false,
+      toggleClicked: 0
     };
   }
 
@@ -68,9 +71,12 @@ class App extends PureComponent {
 
   togglePersonhandler = () => {
     const doesShow = this.state.showPerson;
-    this.setState({
-      showPerson: !doesShow
-    });
+    this.setState((prevState, props) => {
+      return {
+        showPerson: !doesShow,
+        toggleClicked: prevState.toggleClicked + 1
+      };
+    })
   };
 
   nameChangedhandler = (event, id) => {
@@ -101,7 +107,7 @@ class App extends PureComponent {
     }
 
     return (
-      <div className={classes.App}>
+      <Aux classes={classes.App}>
         <button onClick={() => {
           this.setState({showPerson: true})
         }}>Show persons</button>
@@ -111,9 +117,9 @@ class App extends PureComponent {
           togglePersonhandler={this.togglePersonhandler}
         />
         {persons}
-      </div>
+      </Aux>
     )
   }
 }
 
-export default App;
+export default withClass(App, classes.App);
