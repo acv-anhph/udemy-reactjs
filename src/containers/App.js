@@ -12,7 +12,7 @@ class App extends PureComponent {
 
     this.state = {
       persons: [
-        {id: 'dsfsdfsdf3423', name: 'hoang anh', age: '45'},
+        {id: 'dsfsdfsdf3423', name: 'hoang anh', age: 45},
         {id: 'dsfsdfsdf342vds3', name: 'ngan ha', age: 29},
         {id: 'dsfsdfsdf34s23', name: 'dau dau', age: 2},
       ],
