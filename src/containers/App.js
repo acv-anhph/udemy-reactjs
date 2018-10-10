@@ -47,6 +47,16 @@ class App extends PureComponent {
     console.log('[Update App.js] inside componentDidUpdate', prevProps, prevState);
   }
 
+  static getDerivedStateFromProps(nextProps, prevState) {
+    console.log('[Update App.js] inside getDerivedStateFromProps', nextProps, prevState);
+    return prevState;
+  }
+
+
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+
+  }
+
   // state = {
   //   persons: [
   //     {id: 'dsfsdfsdf3423', name: 'hoang anh', age: 29},
