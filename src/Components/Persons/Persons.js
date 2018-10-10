@@ -21,13 +21,13 @@ class Persons extends Component {
     console.log('[Update Persons.js] inside componentWillReceiveProps', nextProps);
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log('[Update Persons.js] inside shouldComponentUpdate', nextProps, this.props.persons, nextState);
-    return nextProps.persons !== this.props.persons ||
-           nextProps.clicked !== this.props.clicked ||
-           nextProps.changed !== this.props.changed;
-    // return true;
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log('[Update Persons.js] inside shouldComponentUpdate', nextProps, this.props.persons, nextState);
+  //   return nextProps.persons !== this.props.persons ||
+  //          nextProps.clicked !== this.props.clicked ||
+  //          nextProps.changed !== this.props.changed;
+  //   // return true;
+  // }
 
 
   componentWillUpdate(nextProps, nextState) {
